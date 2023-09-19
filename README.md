@@ -113,6 +113,4 @@ which makes up for the lack of processing performance of the Raspberry Pi.
 It is not a competition code.
 
 
-#   q i b e n 
- 
  

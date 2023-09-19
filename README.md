@@ -44,7 +44,7 @@ The code was tested with tensorflow and Python 3.7. After installing the tensorf
 [mypath.py](https://github.com/jfzhang95/pytorch-video-recognition/blob/master/mypath.py).
 
 4. You can choose different models and datasets in
-[train.py](https://github.com/jfzhang95/pytorch-video-recognition/blob/master/train.py).
+[train.py](https://github.com/Zhuqiben/qiben/blob/main/pi_env/trian.py).
 
     To train the model, please do:
     ```Shell

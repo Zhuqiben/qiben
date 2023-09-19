@@ -124,12 +124,6 @@ def bridge_color_detect_top(color, grad=1.0, ksizes=None, defaults=None):
     else:
         defaults_ = defaults
 
-    # 图像处理及roi提取
-    # global frame_cali, frame_ready
-    # while not frame_ready:
-    #     time.sleep(0.01)
-    # frame_ready = False
-    # frame_cali = cv2.imread("key frame/images/0667.jpg")
     time.sleep(0.5)
     img = frame_cali.copy()
     close = get_frame_bin(img, color, ksizes_[0], ksizes_[1])
@@ -167,17 +161,6 @@ def bridge_color_detect_top(color, grad=1.0, ksizes=None, defaults=None):
 
 
 def bridge_color_detect_bottom(color, grad=1.0, ksizes=None, defaults=None):
-    """返回目标区域占比, 底部角度, 底部中点[x,y], 底部左点[x,y], 底部右点[x,y]
-
-    Args:
-        color (str): 颜色
-        grad (float, optional): 斜率. Defaults to 1.0.
-        ksizes (list, optional): 高斯核与形态学运算核. Defaults to (3, 3).
-        defaults (list, optional): 缺省[底部角度, 底部中点[x, y], 底部左点[x, y], 底部右点[x, y]]. Defaults to [0, (320, 240), (300, 240), (340, 240)].
-
-    Returns:
-        float, float, list: 目标区域占比, 底部角度, [底部中点[x, y], 底部左点[x, y], 底部右点[x, y]]
-    """
     if ksizes is None:
         ksizes_ = (3, 3)
     else:

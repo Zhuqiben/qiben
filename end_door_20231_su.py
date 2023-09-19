@@ -156,12 +156,6 @@ def end_door_color_detect_top(color, grad=1.0, ksizes=None, defaults=None):
     else:
         defaults_ = defaults
 
-    # 图像处理及roi提取
-    # global frame_cali, frame_ready
-    # while not frame_ready:
-    #     time.sleep(0.01)
-    # frame_ready = False
-    # frame_cali = cv2.imread("key frame/images/0667.jpg")
     time.sleep(0.5)
     img = frame_cali.copy()
     close = get_frame_bin(img, color, ksizes_[0], ksizes_[1])

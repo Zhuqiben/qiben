@@ -207,13 +207,6 @@ def ball_land_color_detect_bottom(color, grad=1.0, ksizes=None, defaults=None):
     else:
         defaults_ = defaults
 
-    # 图像处理及roi提取
-    # global frame_cali, frame_ready
-    # while not frame_ready:
-    #     time.sleep(0.01)
-    # frame_ready = False
-    # img = frame_cali.copy()
-    # frame_cali = cv2.imread("key frame/images/pit.jpg")
     img = frame_cali.copy()
     close = get_frame_bin(img, color, ksizes_[0], ksizes_[1])
     cnts, _ = cv2.findContours(close, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)

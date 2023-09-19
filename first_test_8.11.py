@@ -129,17 +129,6 @@ def greeen_ground_percent():  # 计算草地percent，判断是否走完
 
 
 def start_door_color_detect_bottom(color, grad=1.0, ksizes=None, defaults=None):
-    """返回目标区域占比, 底部角度, 底部中点[x,y], 底部左点[x,y], 底部右点[x,y]
-
-    Args:
-        color (str): 颜色
-        grad (float, optional): 斜率. Defaults to 1.0.
-        ksizes (list, optional): 高斯核与形态学运算核. Defaults to (3, 3).
-        defaults (list, optional): 缺省[底部角度, 底部中点[x, y], 底部左点[x, y], 底部右点[x, y]]. Defaults to [0, (320, 240), (300, 240), (340, 240)].
-
-    Returns:
-        float, float, list: 目标区域占比, 底部角度, [底部中点[x, y], 底部左点[x, y], 底部右点[x, y]]
-    """
     if ksizes is None:
         ksizes_ = (3, 3)
     else:
@@ -318,14 +307,6 @@ def pit_color_detect_top(color, grad=1.0, ksizes=None, defaults=None):
         defaults_ = [0, (135, 240), (300, 240), (340, 240)]
     else:
         defaults_ = defaults
-
-    # 图像处理及roi提取
-    # global frame_cali, frame_ready
-    # while not frame_ready:
-    #     time.sleep(0.01)
-    # frame_ready = False
-    # frame_cali = cv2.imread("key frame/images/0667.jpg")
-    # time.sleep(0.5)
     img = frame_cali.copy()
     close = get_frame_bin(img, color, ksizes_[0], ksizes_[1])
     cnts, _ = cv2.findContours(close, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
@@ -362,17 +343,6 @@ def pit_color_detect_top(color, grad=1.0, ksizes=None, defaults=None):
 
 
 def pit_color_detect_bottom(color, grad=1.0, ksizes=None, defaults=None):
-    """返回目标区域占比, 底部角度, 底部中点[x,y], 底部左点[x,y], 底部右点[x,y]
-
-    Args:
-        color (str): 颜色
-        grad (float, optional): 斜率. Defaults to 1.0.
-        ksizes (list, optional): 高斯核与形态学运算核. Defaults to (3, 3).
-        defaults (list, optional): 缺省[底部角度, 底部中点[x, y], 底部左点[x, y], 底部右点[x, y]]. Defaults to [0, (320, 240), (300, 240), (340, 240)].
-
-    Returns:
-        float, float, list: 目标区域占比, 底部角度, [底部中点[x, y], 底部左点[x, y], 底部右点[x, y]]
-    """
     if ksizes is None:
         ksizes_ = (3, 3)
     else:
@@ -383,11 +353,6 @@ def pit_color_detect_bottom(color, grad=1.0, ksizes=None, defaults=None):
     else:
         defaults_ = defaults
 
-    # 图像处理及roi提取
-    # global frame_cali, frame_ready
-    # while not frame_ready:
-    #     time.sleep(0.01)
-    # frame_ready = False
     # img = frame_cali.copy()
     # frame_cali = cv2.imread("key frame/images/pit.jpg")
     img = frame_cali.copy()
@@ -663,12 +628,6 @@ def state_pit():
 
 # ############################################### 雷区 ######################
 def adjust_angle(angle, angle_range):
-    """调整角度
-
-    Args:
-        angle (float): 角度
-        angle_range (int[float]): 角度范围[min, max]
-    """
     dAng = abs((angle_range[0] + angle_range[1]) / 2 - angle)
     print(f"dAng = {dAng:.2f}")
     if angle < angle_range[0]:
@@ -702,15 +661,6 @@ def adjust_angle(angle, angle_range):
 
 
 def sort_contours_by_LT(cnts, method="left-to-right"):
-    """轮廓按左上点排序
-
-    Args:
-        cnts (tuple): 轮廓
-        method (str, optional): 可选顺序"left-to-right", "right-to-left", "bottom-to-top", "top-to-bottom". Defaults to "left-to-right".
-
-    Returns:
-        tuple: (cnts, boundingBoxes)
-    """
     if not cnts:
         return ([], [])
 
@@ -1871,12 +1821,6 @@ def bridge_color_detect_top(color, grad=1.0, ksizes=None, defaults=None):
     else:
         defaults_ = defaults
 
-    # 图像处理及roi提取
-    # global frame_cali, frame_ready
-    # while not frame_ready:
-    #     time.sleep(0.01)
-    # frame_ready = False
-    # frame_cali = cv2.imread("key frame/images/0667.jpg")
     time.sleep(0.5)
     img = frame_cali.copy()
     close = get_frame_bin(img, color, ksizes_[0], ksizes_[1])
@@ -1914,17 +1858,6 @@ def bridge_color_detect_top(color, grad=1.0, ksizes=None, defaults=None):
 
 
 def bridge_color_detect_bottom(color, grad=1.0, ksizes=None, defaults=None):
-    """返回目标区域占比, 底部角度, 底部中点[x,y], 底部左点[x,y], 底部右点[x,y]
-
-    Args:
-        color (str): 颜色
-        grad (float, optional): 斜率. Defaults to 1.0.
-        ksizes (list, optional): 高斯核与形态学运算核. Defaults to (3, 3).
-        defaults (list, optional): 缺省[底部角度, 底部中点[x, y], 底部左点[x, y], 底部右点[x, y]]. Defaults to [0, (320, 240), (300, 240), (340, 240)].
-
-    Returns:
-        float, float, list: 目标区域占比, 底部角度, [底部中点[x, y], 底部左点[x, y], 底部右点[x, y]]
-    """
     if ksizes is None:
         ksizes_ = (3, 3)
     else:
@@ -2181,12 +2114,6 @@ def ball_land_color_detect_top(color, grad=1.0, ksizes=None, defaults=None):
         defaults_ = [0, (320, 240), (300, 240), (340, 240)]
     else:
         defaults_ = defaults
-
-    # 图像处理及roi提取
-    # global frame_cali, frame_ready
-    # while not frame_ready:
-    #     time.sleep(0.01)
-    # frame_ready = False
     # frame_cali = cv2.imread("key frame/images/0667.jpg")
     # time.sleep(0.5)
     img = frame_cali.copy()
@@ -2234,12 +2161,6 @@ def ball_land_color_detect_bottom(color, grad=1.0, ksizes=None, defaults=None):
         defaults_ = [0, (320, 240), (300, 240), (340, 240)]
     else:
         defaults_ = defaults
-
-    # 图像处理及roi提取
-    # global frame_cali, frame_ready
-    # while not frame_ready:
-    #     time.sleep(0.01)
-    # frame_ready = False
     # img = frame_cali.copy()
     # frame_cali = cv2.imread("key frame/images/pit.jpg")
     img = frame_cali.copy()

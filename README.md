@@ -105,7 +105,7 @@ Note: HMDB dataset's directory tree is similar to UCF101 dataset's.
 
   ```
 
-## TNotice
+## Notice
 This code is an improved one 
 that uses the client to collect data, 
 the terminal processes and feeds back the results, 
